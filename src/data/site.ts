@@ -1,0 +1,15 @@
+export const SITE = {
+  name: 'Autohex',
+  fullName: 'Autohex Automotive Electronics Repair & Module Programming',
+  tagline: 'ECU Repair • Remap • Diagnostic • Programming',
+  phone: '+63 910 567 4999',
+  phoneHref: 'tel:+639105674999',
+  email: 'Autohexshop@gmail.com',
+  address: 'C1 Road, Abilay Sur, Oton, Iloilo, Philippines',
+  hours: 'Open 24 Hours',
+  facebook: 'https://www.facebook.com/AutohexEcuTuningRemapping',
+  messenger: 'https://m.me/AutohexEcuTuningRemapping',
+  googleMaps: 'https://maps.app.goo.gl/VpGVLsyUeJWFR792A',
+  followers: '2,000+',
+  rating: '100% Recommended',
+};

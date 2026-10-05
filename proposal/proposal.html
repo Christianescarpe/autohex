@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Digital Growth Proposal — Autohex Automotive Electronics</title>
+<style>
+  @page {
+    size: A4;
+    margin: 18mm 16mm 20mm 16mm;
+    @bottom-left { content: "Prepared for Autohex — Oton, Iloilo"; font-size: 7.5pt; color: #9a938a; font-family: 'Archivo', sans-serif; }
+    @bottom-right { content: "Page " counter(page) " of " counter(pages); font-size: 7.5pt; color: #9a938a; font-family: 'Archivo', sans-serif; }
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --red: #e10600;
+    --dark: #141010;
+    --ink: #2a2422;
+    --muted: #6b625c;
+    --line: #e5ded8;
+    --paper: #fdfcfa;
+    --tint: #f6f1ed;
+  }
+  body { font-family: 'Archivo', sans-serif; color: var(--ink); background: var(--paper); font-size: 9.5pt; line-height: 1.55; }
+  .font-display { font-family: 'Anton', sans-serif; letter-spacing: .01em; }
+
+  /* ---------- COVER ---------- */
+  .cover {
+    background: var(--dark);
+    color: #e9e7e2;
+    margin: -18mm -16mm -20mm -16mm;
+    padding: 26mm 16mm 22mm 16mm; min-height: 297mm; box-sizing: border-box;
+    position: relative;
+    page-break-after: always;
+  }
+  .cover .stripe { height: 5px; background: var(--red); position: absolute; left: 0; right: 0; top: 0; }
+  .cover .logo { background: #fff; display: flex; align-items: center; justify-content: center; margin: -26mm -16mm 16mm -16mm; padding: 11mm 16mm; }
+  .cover .logo img { display: block; width: 150mm; max-height: 44mm; object-fit: contain; }
+  .cover .kicker { font-size: 9pt; margin-top: 4mm; font-weight: 700; letter-spacing: .32em; text-transform: uppercase; color: var(--red); margin-bottom: 6mm; }
+  .cover h1 { font-size: 42pt; line-height: 1.02; text-transform: uppercase; color: #fff; margin-bottom: 7mm; }
+  .cover h1 span { color: var(--red); }
+  .cover .sub { font-size: 11.5pt; color: #cbc6b9; max-width: 130mm; margin-bottom: 34mm; }
+  .cover .meta { display: flex; gap: 14mm; border-top: 1px solid rgba(233,231,226,.18); padding-top: 6mm; position: absolute; bottom: 26mm; left: 16mm; right: 16mm; }
+  .cover .meta div { font-size: 8.5pt; }
+  .cover .meta b { display: block; font-size: 7.5pt; letter-spacing: .22em; text-transform: uppercase; color: var(--red); margin-bottom: 2mm; font-weight: 700; }
+  .cover .big-num { position: absolute; right: 12mm; bottom: 14mm; font-family: 'Anton'; font-size: 90pt; color: transparent; -webkit-text-stroke: 1.2px rgba(233,231,226,.16); line-height: 1; }
+
+  /* ---------- PAGES ---------- */
+  .page { page-break-after: always; }
+  .page:last-child { page-break-after: auto; }
+  .sec-head { display: flex; align-items: baseline; gap: 5mm; border-bottom: 2.5px solid var(--dark); padding-bottom: 2.5mm; margin-bottom: 5mm; }
+  .sec-head .num { font-family: 'Anton'; font-size: 20pt; color: var(--red); }
+  .sec-head h2 { font-family: 'Anton'; font-size: 17pt; text-transform: uppercase; letter-spacing: .02em; color: var(--dark); }
+  h3 { font-family: 'Anton'; font-size: 11pt; text-transform: uppercase; letter-spacing: .05em; color: var(--dark); margin: 3.5mm 0 1.8mm 0; }
+  p { margin-bottom: 2.4mm; }
+  .muted { color: var(--muted); }
+  .red { color: var(--red); }
+  b.red { font-weight: 700; }
+
+  ul.tight { list-style: none; margin: 2mm 0 4mm 0; }
+  ul.tight li { padding-left: 5mm; position: relative; margin-bottom: 1.8mm; }
+  ul.tight li::before { content: "▸"; color: var(--red); position: absolute; left: 0; font-weight: 700; }
+
+  .callout { background: var(--tint); border-left: 3.5px solid var(--red); padding: 3.2mm 4.5mm; margin: 3mm 0; }
+  .callout b { color: var(--dark); }
+
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; }
+  .grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4mm; }
+  .card { border: 1px solid var(--line); padding: 4.5mm; background: #fff; }
+  .card h4 { font-family: 'Anton'; font-size: 10pt; text-transform: uppercase; margin-bottom: 2mm; color: var(--dark); }
+  .card h4 .tag { color: var(--red); }
+  .card p, .card li { font-size: 8.5pt; }
+  .card ul.tight li { margin-bottom: 1.2mm; }
+
+  table { width: 100%; border-collapse: collapse; margin: 3mm 0 5mm 0; font-size: 8.8pt; }
+  th { font-family: 'Anton'; text-transform: uppercase; letter-spacing: .06em; font-size: 8.5pt; text-align: left; background: var(--dark); color: #e9e7e2; padding: 2.4mm 3.5mm; }
+  td { padding: 2.2mm 3.5mm; border-bottom: 1px solid var(--line); vertical-align: top; }
+  tr:nth-child(even) td { background: #faf7f4; }
+  td.num, th.num { text-align: right; white-space: nowrap; }
+  tr.total td { background: var(--dark) !important; color: #fff; font-family: 'Anton'; font-size: 10.5pt; text-transform: uppercase; letter-spacing: .04em; border: none; }
+  tr.total td .php { color: var(--red); font-size: 14pt; }
+  .strike { text-decoration: line-through; color: var(--muted); }
+
+  .pkg { border: 1.5px solid var(--dark); margin-bottom: 5mm; }
+  .pkg-head { background: var(--dark); color: #fff; padding: 2.8mm 5mm; display: flex; justify-content: space-between; align-items: baseline; }
+  .pkg-head h4 { font-family: 'Anton'; font-size: 12pt; text-transform: uppercase; }
+  .pkg-head span { font-family: 'Anton'; font-size: 12pt; color: var(--red); }
+  .pkg-body { padding: 3mm 5mm; }
+
+  .roi-box { background: var(--dark); color: #e9e7e2; padding: 5mm 6mm; margin: 4mm 0; }
+  .roi-box .font-display { color: #fff; font-size: 13pt; text-transform: uppercase; margin-bottom: 2mm; }
+  .roi-box .formula { font-size: 10.5pt; color: #cbc6b9; }
+  .roi-box .formula b { color: var(--red); font-size: 12pt; }
+
+  .steps { counter-reset: step; margin-top: 3mm; }
+  .step { display: flex; gap: 4mm; margin-bottom: 3.5mm; }
+  .step .n { counter-increment: step; font-family: 'Anton'; font-size: 15pt; color: var(--red); min-width: 9mm; }
+  .step .n::before { content: counter(step, decimal-leading-zero); }
+  .step .txt b { display: block; color: var(--dark); }
+  .step .txt { font-size: 9pt; }
+
+  .sig { display: grid; grid-template-columns: 1fr 1fr; gap: 16mm; margin-top: 12mm; }
+  .sig .line { border-top: 1.5px solid var(--dark); padding-top: 2mm; font-size: 8.5pt; color: var(--muted); }
+</style>
+</head>
+<body>
+
+<!-- ============ COVER ============ -->
+<div class="cover">
+  <div class="stripe"></div>
+  <div class="logo"><img src="/mnt/agents/upload/image.png" alt="Autohex"></div>
+  <p class="kicker">Website • Local SEO • Social Media Marketing</p>
+  <h1 class="font-display">Digital Growth<br>Proposal for<br><span>Autohex</span></h1>
+  <p class="sub">Turning Autohex's 24-hour expertise into Iloilo's #1 search result for ECU remapping, module repair, and automotive electronics — and turning that visibility into booked jobs.</p>
+  <div class="meta">
+    <div><b>Prepared for</b>Autohex Automotive Electronics Repair &amp; Module Programming<br>C1 Road, Abilay Sur, Oton, Iloilo</div>
+    <div><b>Package</b>Website + SEO Setup<br>+ Monthly Growth Retainer</div>
+    <div><b>Valid until</b>30 days from issue date</div>
+  </div>
+  <div class="big-num">2026</div>
+</div>
+
+<!-- ============ PAGE 2: SITUATION ============ -->
+<div class="page">
+  <div class="sec-head"><span class="num">01</span><h2>Where Autohex Stands Today</h2></div>
+
+  <p>Autohex already has what most shops don't: <b>real specialization</b> (ECU, ABS, BCM, TCM, EPS, airbag, cluster repair), <b>24-hour availability</b>, a <b>100% recommended rating</b>, and <b>2,000+ Facebook followers</b>. The hard part of the business — being good at the work — is done.</p>
+
+  <p><b>The gap is visibility.</b> Right now, a vehicle owner in Iloilo searching Google for <i>"ECU repair Iloilo"</i>, <i>"chip tuning near me"</i>, or <i>"DPF problem Oton"</i> will not find Autohex — because there is no website for Google to rank. Every one of those searches is a customer calling a competitor, or worse, paying dealer prices for a module that Autohex could have repaired.</p>
+
+  <div class="callout">
+    <b>The core opportunity:</b> automotive electronics is a high-intent, high-value niche. People searching for ECU and module services have a broken vehicle <i>right now</i> — they don't browse, they book. Being #1 on Google for these searches in Iloilo means a direct line to the most motivated customers in the province.
+  </div>
+
+  <h3>What's working</h3>
+  <ul class="tight">
+    <li>Strong Facebook presence with regular job posts and genuine reviews</li>
+    <li>Clear niche positioning — software &amp; electronics, not "general talyer"</li>
+    <li>24/7 availability — a massive differentiator no competitor markets</li>
+    <li>Serves cars, trucks AND heavy equipment — multiple high-value segments</li>
+  </ul>
+
+  <h3>What's missing</h3>
+  <ul class="tight">
+    <li><b>No website</b> — zero presence in Google search results and Google Maps organic listings</li>
+    <li><b>No SEO structure</b> — no pages targeting the services and towns Autohex actually serves</li>
+    <li><b>Facebook page not optimized for conversion</b> — no clear funnel from post → inquiry → booking</li>
+    <li><b>No consistent content system</b> — posting depends on spare time, so growth stalls</li>
+  </ul>
+
+  <h3>What this costs Autohex (conservatively)</h3>
+  <table>
+    <tr><th>Lost opportunity</th><th>Estimate</th></tr>
+    <tr><td>Google searches for ECU/module/diagnostics services in Iloilo going to competitors or dealers</td><td class="num">10–30 searches/mo</td></tr>
+    <tr><td>Average job value (remap, module repair, diagnostics)</td><td class="num">₱3,000–₱15,000</td></tr>
+    <tr><td>Conservative monthly revenue left on the table (capturing just 2–3 jobs/mo)</td><td class="num"><b>₱10,000–₱30,000/mo</b></td></tr>
+  </table>
+  <p class="muted" style="font-size:8pt;">Estimates are deliberately conservative. One fleet account or one heavy-equipment job can exceed these figures on its own.</p>
+</div>
+
+<!-- ============ PAGE 3: PLAN ============ -->
+<div class="page">
+  <div class="sec-head"><span class="num">02</span><h2>The Plan — Three Engines Working Together</h2></div>
+
+  <p>We don't just "make a website." We build a complete customer-acquisition system: a website that <b>ranks</b>, SEO that <b>brings searchers in</b>, and social media that <b>keeps Autohex top-of-mind</b> and converts followers into bookings.</p>
+
+  <div class="grid3" style="margin-top:5mm;">
+    <div class="card">
+      <h4><span class="tag">Engine 1</span><br>Professional Website</h4>
+      <p class="muted">Your 24/7 salesman. A fast, mobile-first site built to rank and convert:</p>
+      <ul class="tight">
+        <li>Custom design with Autohex branding</li>
+        <li>6 dedicated service pages (remapping, ECU repair, diagnostics, DPF/EGR/AdBlue, module repair, immo/DTC)</li>
+        <li>9 location pages: Oton, Leganes, Tigbauan, Guimbal, Pavia, San Miguel, Santa Barbara, Iloilo City, Mandurriao</li>
+        <li>Quote/contact form + one-tap Messenger, call &amp; directions buttons</li>
+        <li>Facebook &amp; Google Maps integration, review showcase</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4><span class="tag">Engine 2</span><br>Local SEO</h4>
+      <p class="muted">Getting Autohex to the top of Google for searches that turn into jobs:</p>
+      <ul class="tight">
+        <li>Full keyword research for Iloilo automotive market</li>
+        <li>On-page SEO on every page (titles, meta, schema, speed)</li>
+        <li>Google Business Profile optimization — photos, services, posts, Q&amp;A</li>
+        <li>Google Search Console setup &amp; indexing</li>
+        <li>Local citations &amp; directory listings (NAP consistency)</li>
+        <li>Review-generation system for Google &amp; Facebook</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4><span class="tag">Engine 3</span><br>Social Media Marketing</h4>
+      <p class="muted">Turning 2,000 followers into a steady flow of inquiries:</p>
+      <ul class="tight">
+        <li>12 posts/month (before-afters, tips, promos, testimonials)</li>
+        <li>Branded graphics &amp; short-form video edits (Reels)</li>
+        <li>Content calendar — consistent, never random</li>
+        <li>Facebook page optimization (CTA, services, links to site)</li>
+        <li>Engagement &amp; inbox-response playbook</li>
+        <li>Monthly performance report in plain language</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout" style="margin-top:5mm;">
+    <b>Already done — at no cost to you:</b> the website has already been designed and built as a live demo (the site shown to you). If you proceed, we simply refine it with your real shop photos and launch it. You're not paying for a promise — the product already exists.
+  </div>
+
+  <h3>Why location pages matter</h3>
+  <p>When someone in Pavia searches <i>"ECU repair Pavia"</i>, Google favors pages specifically about Pavia. Autohex will have a dedicated, optimized page for each of 9 towns — competitors with a single generic page (or none) simply cannot outrank that structure. This is how a shop in Oton becomes the visible answer for the entire province.</p>
+</div>
+
+<!-- ============ PAGE 4: DELIVERABLES + TIMELINE ============ -->
+<div class="page">
+  <div class="sec-head"><span class="num">03</span><h2>Deliverables &amp; Timeline</h2></div>
+
+  <h3>Full deliverables list</h3>
+  <table>
+    <tr><th style="width:24%;">Workstream</th><th>Deliverables</th><th style="width:16%;">When</th></tr>
+    <tr>
+      <td><b>Website</b></td>
+      <td>Custom branded site • homepage • 6 service pages • 9 location pages • contact/quote forms • Messenger, call &amp; Maps integration • mobile-first &amp; fast-loading • SSL-secure hosting setup • launch</td>
+      <td>Weeks 1–2</td>
+    </tr>
+    <tr>
+      <td><b>SEO</b></td>
+      <td>Keyword research • on-page optimization (all 16 pages) • LocalBusiness schema markup • Google Search Console setup &amp; sitemap submission • Google Business Profile full optimization • 10+ local directory/citation listings • review-generation templates</td>
+      <td>Weeks 1–3</td>
+    </tr>
+    <tr>
+      <td><b>Social Media</b></td>
+      <td>Facebook page optimization • Month 1 content included FREE (12 posts) • branded graphic templates • Reels/short-video edits • content calendar • inbox-response playbook • then monthly via Growth Retainer</td>
+      <td>Month 1 onward</td>
+    </tr>
+    <tr>
+      <td><b>Reporting</b></td>
+      <td>Monthly report: Google rankings, website visitors, inquiries/leads, Facebook reach &amp; engagement — in plain language, no jargon</td>
+      <td>Monthly</td>
+    </tr>
+  </table>
+
+  <h3>90-day roadmap</h3>
+  <table>
+    <tr><th style="width:18%;">Phase</th><th>Focus</th><th style="width:34%;">Milestone</th></tr>
+    <tr><td><b>Days 1–14</b></td><td>Website live, Google Business Profile optimized, Search Console indexing started, Facebook page optimized</td><td>Autohex has a complete, professional online presence</td></tr>
+    <tr><td><b>Days 15–30</b></td><td>Location pages climbing local results, free Month 1 content running (12 posts), review system active</td><td>First Google appearances for town-level searches</td></tr>
+    <tr><td><b>Month 2+</b></td><td>Growth Retainer active: SEO maintenance + 12 posts/month, rankings compounding on high-value keywords</td><td>Measurable inquiry growth, month over month</td></tr>
+  </table>
+
+  <div class="roi-box">
+    <div class="font-display">The math that matters</div>
+    <p class="formula">One-time setup: <b>₱40,000</b> &nbsp;→&nbsp; Break-even: just <b>3–5 average jobs</b>.<br>And unlike ads, a ranking website keeps producing customers for years — it's an asset you own, not a bill that stops working when you stop paying.</p>
+  </div>
+</div>
+
+<!-- ============ PAGE 5: INVESTMENT ============ -->
+<div class="page">
+  <div class="sec-head"><span class="num">04</span><h2>Investment</h2></div>
+
+  <p>Two simple parts: a one-time setup that builds your entire online foundation, and an optional monthly retainer that keeps it growing.</p>
+
+  <h3>Part 1 — One-Time Setup</h3>
+  <table>
+    <tr><th>Component</th><th>PH market rate (2025–2026)</th><th class="num">Value</th></tr>
+    <tr><td>Custom 16-page website (design, build, launch)</td><td>₱40,000–₱80,000 for business sites</td><td class="num">₱40,000</td></tr>
+    <tr><td>Complete SEO foundation (keyword research, on-page on all 16 pages, schema, Search Console)</td><td>₱15,000–₱50,000/month for PH small-business &amp; local SEO</td><td class="num">₱15,000</td></tr>
+    <tr><td>Google Business Profile optimization + 10+ citations + review system</td><td>Bundled in local SEO retainers above</td><td class="num">₱8,000</td></tr>
+    <tr><td>Facebook page optimization + Month 1 of social media FREE (12 posts, branded graphics, Reels)</td><td>₱12,000–₱30,000/month for starter–growth PH packages</td><td class="num">₱12,000</td></tr>
+    <tr><td colspan="2" style="text-align:right; font-weight:700;">Total market value</td><td class="num strike">₱75,000</td></tr>
+    <tr class="total"><td colspan="2">Autohex One-Time Setup — everything above, one price</td><td class="num"><span class="php">₱40,000</span></td></tr>
+  </table>
+
+  <div class="callout" style="margin:3mm 0;">
+    <b>You know what a website alone costs — you've paid ₱40,000 for one before.</b> This time, the same price gets you the website <i>plus</i> the complete SEO foundation <i>plus</i> your first month of social media free — and the live demo proves it's real.
+  </div>
+
+  <h3>Part 2 — Growth Retainer (from Month 2, optional)</h3>
+  <table>
+    <tr><th>What's included monthly</th><th>PH market rate (2025–2026)</th><th class="num">Rate</th></tr>
+    <tr><td>SEO maintenance — rank tracking, GMB posts &amp; updates, review management, content updates, monthly report</td><td>₱15,000–₱50,000/month for local SEO retainers</td><td class="num">—</td></tr>
+    <tr><td>Social media — 12 posts/month (graphics + Reels), calendar, engagement playbook, monthly report</td><td>₱12,000–₱30,000/month for SMM packages</td><td class="num">—</td></tr>
+    <tr><td colspan="2" style="text-align:right; font-weight:700;">Bought separately, per month</td><td class="num strike">₱27,000+</td></tr>
+    <tr class="total"><td colspan="2">Autohex Growth Retainer — both, every month</td><td class="num"><span class="php">₱20,000/mo</span></td></tr>
+  </table>
+
+  <p class="muted" style="font-size:7.5pt; margin-bottom:2mm;">Rates reflect published 2025–2026 PH pricing: agencies charge ₱15,000–₱100,000/mo for small-business SEO and ₱12,000–₱65,000+/mo for SMM; even the cheapest Iloilo SEO provider charges ₱1,500/mo for a bare-bones service. Retainer is month-to-month — no lock-in, cancel anytime with 15 days' notice.</p>
+
+  <div class="grid2" style="margin-top:3mm;">
+    <div class="pkg">
+      <div class="pkg-head"><h4>Payment terms</h4><span>50 / 50</span></div>
+      <div class="pkg-body">
+        <ul class="tight">
+          <li><b>₱20,000</b> — on signing (work begins immediately)</li>
+          <li><b>₱20,000</b> — on website launch (within 14 days)</li>
+          <li><b>Growth Retainer</b> — ₱20,000/mo from Month 2, billed in advance; Month 1 social media is free with setup</li>
+        </ul>
+        <p class="muted" style="font-size:8.5pt;">GCash, bank transfer, or cash accepted. Official receipt issued.</p>
+      </div>
+    </div>
+    <div class="pkg">
+      <div class="pkg-head"><h4>What's not included</h4><span>No surprises</span></div>
+      <div class="pkg-body">
+        <ul class="tight">
+          <li>Paid ad spend (optional — if you later want FB/Google ads, the budget is separate and goes 100% to the platform)</li>
+          <li>Domain name (~₱500–₱1,000/year if you want a custom .com/.ph — optional)</li>
+        </ul>
+        <p class="muted" style="font-size:8.5pt;">Prefer to pause after setup? The website, SEO foundation, and all files are yours to keep — the retainer simply keeps growth compounding.</p>
+      </div>
+    </div>
+  </div>
+
+  <h3>Our commitment</h3>
+  <ul class="tight">
+    <li><b>Website live within 14 days</b> of signing — or we work free until it is</li>
+    <li><b>Full transparency</b> — you see every post before it publishes, and every report in plain language</li>
+    <li><b>You own everything</b> — website files, content, graphics, and logins are yours, forever</li>
+  </ul>
+</div>
+
+<!-- ============ PAGE 6: NEXT STEPS ============ -->
+<div class="page">
+  <div class="sec-head"><span class="num">05</span><h2>Next Steps</h2></div>
+
+  <div class="steps">
+    <div class="step"><div class="n"></div><div class="txt"><b>Approve this proposal</b>Reply or sign below — we start the same week.</div></div>
+    <div class="step"><div class="n"></div><div class="txt"><b>30-minute content session</b>We collect your best job photos/videos, confirm service details and any promos. This is the only time we need from you.</div></div>
+    <div class="step"><div class="n"></div><div class="txt"><b>Website goes live (within 14 days)</b>Refined with your real photos, launched, submitted to Google, linked from your Facebook page and Google profile.</div></div>
+    <div class="step"><div class="n"></div><div class="txt"><b>Content engine starts — Month 1 is on us</b>Your first month of social media (12 posts) is included free with the setup. You approve everything before it goes out.</div></div>
+    <div class="step"><div class="n"></div><div class="txt"><b>First report + retainer decision (day 30)</b>Rankings, traffic, and inquiries — you'll see exactly what your investment is doing. Continue with the ₱20,000/month Growth Retainer, or keep the assets and run it yourself. No lock-in.</div></div>
+  </div>
+
+  <div class="callout">
+    <b>Why act now:</b> every month without a website is another month of Iloilo searches going elsewhere. SEO compounds — the sooner the site is indexed and the location pages start climbing, the sooner Autohex owns these searches. Competitors are one website away from taking that spot.
+  </div>
+
+  <p style="margin-top:5mm;">Questions? Message us anytime — the same way your customers will soon be messaging you.</p>
+
+  <div class="sig">
+    <div class="line">Authorized signature — Autohex Automotive Electronics Repair &amp; Module Programming &nbsp;/&nbsp; Date</div>
+    <div class="line">Authorized signature — Service Provider &nbsp;/&nbsp; Date</div>
+  </div>
+</div>
+
+</body>
+</html>
